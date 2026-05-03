@@ -3,13 +3,13 @@ package com.ai.mcp.server.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Slf4j
-@Service
+@Component
 public class DateTimeServiceServer {
 
     @Tool(name = "getDateTime", description = "获取当前时间")
