@@ -47,7 +47,7 @@ public class FileCommandService {
             "sudo", "su -", "pkexec"
     );
 
-    @Tool(name = "executeCommand", description = "在本地执行 Linux 命令并返回结果")
+    @Tool(name = "executeCommand", description = "在本地执行 Linux 命令并返回结果。执行前必须先向用户展示命令内容并获得用户确认")
     public String executeCommand(@ToolParam(description = "要执行的命令") String command) {
         log.info("执行命令: {}", command);
 
