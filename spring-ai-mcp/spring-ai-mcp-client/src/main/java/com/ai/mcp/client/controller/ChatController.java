@@ -1,5 +1,6 @@
 package com.ai.mcp.client.controller;
 
+import com.ai.mcp.client.advisor.PlanExecutionAdvisor;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
@@ -24,10 +25,6 @@ public class ChatController {
      * 聊天接口，支持多轮对话
      * <p>
      * 会话由 HttpSession 自动管理，客户端无需传参
-     *
-     * @param userInput 用户输入
-     * @param session   HttpSession（Spring Boot 自动注入）
-     * @return 返回内容
      */
     @GetMapping("chat")
     public String prompt(
@@ -35,9 +32,12 @@ public class ChatController {
             HttpSession session) {
 
         return this.chatClient.prompt()
-                .advisors(MessageChatMemoryAdvisor.builder(chatMemory)
-                        .conversationId(session.getId())
-                        .build())
+                .advisors(
+                        MessageChatMemoryAdvisor.builder(chatMemory)
+                                .conversationId(session.getId())
+                                .build(),
+                        new PlanExecutionAdvisor(300)
+                )
                 .user(userInput)
                 .call()
                 .content();
