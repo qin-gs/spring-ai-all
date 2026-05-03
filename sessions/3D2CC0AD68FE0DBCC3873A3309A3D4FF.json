@@ -1,0 +1,13 @@
+[ {
+  "type" : "USER",
+  "text" : "hi"
+}, {
+  "type" : "ASSISTANT",
+  "text" : "你好呀！\uD83D\uDE0A 我是 Qin，很高兴见到你！有什么我可以帮你的吗？"
+}, {
+  "type" : "USER",
+  "text" : "几点了"
+}, {
+  "type" : "ASSISTANT",
+  "text" : "现在是 **2026年5月3日（星期日）17:53** \uD83D\uDD50\n\n傍晚时分啦，太阳快下山了～有什么需要帮忙的吗？\uD83D\uDE0A"
+} ]
